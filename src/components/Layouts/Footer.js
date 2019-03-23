@@ -4,6 +4,7 @@ import { Paper, Tabs, Tab } from "@material-ui/core";
 export default class extends Component {
   state = {};
   render() {
+    const { muscles } = this.props;
     return (
       <Paper>
         <Tabs
@@ -13,9 +14,10 @@ export default class extends Component {
           textColor="primary"
           centered
         >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
+          <Tab label="All" />
+          {muscles.map(group => (
+            <Tab label={group} />
+          ))}
         </Tabs>
       </Paper>
     );
